@@ -7,8 +7,8 @@
     echo "连接成功";echo '</br>';
 
     $name = $_GET['name'];
-    echo "处理前的参数:".$_GET['name'];echo '</br>';
-    echo "处理后的参数:".$name;echo '</br>';
+    // echo "处理前的参数:".$_GET['name'];echo '</br>';
+    echo "处理前的参数:".$name;echo '</br>';
 
     // sql语句
     $sql = "select * from p_users where username='{$name}'";
