@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+</head>
+<body>
+    <p>hello word</p>
+    <button id="btn">异步加载</button>
+</body>
+</html>
+
+<script>
+    //获取节点
+    var btn = document.getElementById("btn");
+
+    // 绑定事件
+    btn.addEventListener('click',function(e){
+        var httpRequest = new XMLHttpRequest();
+        console.log(httpRequest);
+
+        // 处理服务器响应
+        httpRequest.onreadystatechange = function(){
+            // Process the server response here.
+            if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                // Everything is good, the response was received.
+
+                if (httpRequest.status === 200) {
+                    // Perfect!
+                    alert("服务器处理成功");
+                } else {
+                    // There was a problem with the request.
+                    // For example, the response may have a 404 (Not Found)
+                    // or 500 (Internal Server Error) response code.
+                }
+            } else {
+                // Not ready yet.
+            }
+        };
+
+        httpRequest.open('GET', '/api.php', true);
+        httpRequest.send();
+    })
+
+    
+
+
+</script>
